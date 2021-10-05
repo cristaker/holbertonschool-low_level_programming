@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- *  * main - Prints numbers between 00 to 99.
+ *  * main - Prints numbers betwen 00 and 99 and not repeat.
  *   *
  *    * Return: Always 0 (Success)
  *     **/
