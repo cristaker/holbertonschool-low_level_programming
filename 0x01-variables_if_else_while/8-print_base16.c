@@ -2,9 +2,11 @@
 /**
  * main - print number in base 16 lowercase
  *
- * Return = Always 0 (Succes)
+ * Return: Always 0 (Succes)
  * **/
+
 int main(void)
+
 {
 	int i;
 		for (i = 48; i < 58; i++)
