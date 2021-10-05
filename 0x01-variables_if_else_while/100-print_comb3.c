@@ -8,24 +8,19 @@ int main(void)
 {
 	int i, e;
 
-	i = 48;
-	e = 48;
-		while (e < 58)
+		for (i = 0; i < 9; i++)
 	{
-		i = 48;
-			while (i < 58)
+		for (e = i + 1; e < 10; e++)
 		{
-			putchar(e);
-			putchar(i);
-			if (i == 57 && e == 57)
+			putchar((i % 10) + '0');
+			putchar((e % 10) + '0');
+			if (i == 8 && e == 9)
 	{
-			break;
+			continue;
 	}
 			putchar(',');
 			putchar(' ');
-			i++;
 		}
-	e++;
 	}
 	putchar('\n');
 	return (0);
