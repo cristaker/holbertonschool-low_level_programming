@@ -12,14 +12,14 @@ void rev_string(char *s)
 
 	while (s[a])
 	{
-		scopy[a] = s[a];
-		a++;
+	scopy[a] = s[a];
+	a++;
 	}
 	a = a - 1;
 	while (a >= 0)
 	{
-		s[a] = scopy[b];
-			a--;
-			b++;
+	s[a] = scopy[b];
+	a--;
+	b++;
 	}
 }
