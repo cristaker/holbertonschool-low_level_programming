@@ -1,22 +1,25 @@
 #include "main.h"
- /**
-  * _strcmp - function to print
-  *@a: integer 1
-  *@b: integer 2
-  * Return: Always 0 (Succes)
-  * **/
+/**
+ * _strcmp - function concatenate
+ *
+ * @s1: char pointer 1
+ * @s2: char pointer 2
+ *
+ * Return: int
+ * **/
 
 int _strcmp(char *s1, char *s2)
 {
 	int n = 0;
-	int a;
-		for (a = 0; (s1[a] != '\0' && s2[a] != '\0'); a++)
+	int i;
+
+	for (i = 0; (s1[i] != '\0' && s2[i] != '\0'); i++)
+	{
+		if (s1[i] != s2[i])
 		{
-		if (s1[a] != s2[a])
-		{
-			n = s1[a] - s2[a];
+			n = s1[i] - s2[i];
 			break;
 		}
-		}
-		return (n);
+	}
+	return (n);
 }
