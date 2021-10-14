@@ -1,7 +1,8 @@
 #include "main.h"
 /**
  * reverse_array - array to reverse
- *
+ *@a: char pointer
+ *@n: number of character
  * Return: Always 0 (Succes)
  * **/
 
