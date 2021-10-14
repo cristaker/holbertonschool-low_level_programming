@@ -1,7 +1,8 @@
 #include "main.h"
 /**
  * *_strcat - prototype to function
- *
+ *@dest: integer 1
+ *@src: integer 2
  * Return: Always pointer (Succes)
  ***/
 char *_strcat(char *dest, char *src)
