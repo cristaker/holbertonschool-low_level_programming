@@ -5,24 +5,29 @@
  * **/
 int main(void)
 {
-	int i, e, o;
+	int a, b, c;
 
-	for (i = 0; i < 8; i++)
-{
-	for (e = i + 1; e < 9; e++)
-{
-	for (o = e + 1; e < 10; o++)
+	for (a = 48; a <= 57; a++)
+	{
+		for (b = 48; b <= 57; b++)
+		{
+			for (c = 48; c <= 57; c++)
+			{
+				if (b > a && c > b)
 				{
-		putchar((i % 10) + '0');
-		putchar((e % 10) + '0');
-		putchar((o % 10) + '0');
-		if (i == 7 && e == 8 && o == 9)
-			continue;
-		putchar(',');
-		putchar(' ');
+				putchar(a);
+				putchar(b);
+				putchar(c);
+				if (a != 55)
+				{
+					putchar(44);
+					putchar(32);
+			}
+				}
 			}
 		}
 	}
 	putchar('\n');
 	return (0);
+
 }
