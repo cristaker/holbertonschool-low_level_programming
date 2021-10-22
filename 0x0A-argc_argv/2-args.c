@@ -3,15 +3,14 @@
 /**
  * main - entry point
  * @agrc: integer
- * @agrv: pointer 
+ * @agrv: pointer
  * Return: 0
  * **/
 
 int main(int agrc, char **agrv)
 {
 	int i;
-	
-	for (i = 0; i < agrc; i++)
+		for (i = 0; i < agrc; i++)
 	{
 		printf("%s\n", agrv[i]);
 	}
