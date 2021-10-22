@@ -2,7 +2,8 @@
 #include <stdio.h>
 /**
  * main - entrey point
- *
+ * @agrc: integer 1
+ * @agrv: pointer to integer.
  * Return: 0
  * **/
 
