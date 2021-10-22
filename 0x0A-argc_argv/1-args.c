@@ -10,6 +10,6 @@
 int main(int agrc, char **agrv)
 {
 	(void)**agrv;
-	printf("%d\n", agrc);
+	printf("%d\n", agrc - 1);
 	return (0);
 }
