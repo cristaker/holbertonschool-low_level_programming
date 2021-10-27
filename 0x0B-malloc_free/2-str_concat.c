@@ -29,7 +29,7 @@ char *str_concat(char *s1, char *s2)
 			c2++;
 			b++;
 		}
-		total = (c1 + c2);
+		total = (c1 + c2) + 1;
 		str = malloc(sizeof(char) * total);
 
 		if (str == NULL)
