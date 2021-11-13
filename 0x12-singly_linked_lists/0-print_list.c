@@ -7,16 +7,19 @@
 
 size_t print_list(const list_t *h)
 {
-	size_t number;
+	unsigned int number = 0;
+	const list_t *a;
+	a = h;
+		
 	
-	while (h != NULL)
+	while (a != NULL)
 	{
-		if (h->str == NULL)
+		if (a->str == NULL)
 			printf("%s\n", "nil");
 		else
-			printf("%d %s\n", h->len, h->str);
+			printf("%d %s\n", a->len, a->str);
 
-	h = h->next;
+	a = a->next;
 	number++;
 	}
 	return (number);
