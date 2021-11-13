@@ -2,7 +2,7 @@
 
 void turtleHare(void) __attribute__ ((constructor));
 /**
- * turtlehare - function to print
+ * turtleHare - function to print
  * Return: void
  * **/
 
