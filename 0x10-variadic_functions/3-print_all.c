@@ -33,7 +33,7 @@ void print_all(const char * const format, ...)
 				printf("%s", str);
 				break;
 		}
-		j = i + 3;
+		j = i + 1;
 		while (format[j] && (format[j] == 'c' || format[j] == 'i' || format[j] == 's'
 					|| format[j] == 'f'))
 		{
