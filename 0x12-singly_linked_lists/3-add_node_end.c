@@ -45,9 +45,9 @@ list_t *add_node_end(list_t **head, const char *str)
 		new2 = head;
 		while (new2->next != NULL)
 		{
-			new2->next = new2;
+			new2 = new2->next;
 		}
-		new2->next = new;
+		new = new2->next;
 	}
 	return (new);
 
