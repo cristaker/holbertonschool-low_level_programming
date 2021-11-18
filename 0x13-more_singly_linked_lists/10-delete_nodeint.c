@@ -22,19 +22,19 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		}
 	}
 	if (previous == NULL || (previous->next == NULL && index != 0))
-			{
-				return (-1);
-			}
-			next = previous->next;
-			if (index != 0)
-			{
-				previous->next = next->next;
-				free(next);
-			}
-			else
-			{
-				free(previous);
-				*head = next;
-			}
-			return (1);
+	{
+		return (-1);
+	}
+	next = previous->next;
+	if (index != 0)
+	{
+		previous->next = next->next;
+		free(next);
+	}
+	else
+	{
+		free(previous);
+		*head = next;
+	}
+	return (1);
 }
