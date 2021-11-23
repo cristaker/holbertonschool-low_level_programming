@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 	int rd, wr, fd1, fd2, cl1, cl2;
 	char buf[1024];
 
-	if (argc != 1)
+	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 				exit(97);
