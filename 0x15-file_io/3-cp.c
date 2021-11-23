@@ -1,4 +1,8 @@
 #include "main.h"
+
+#define READ_ERR "Error: Can't read from file %s\n"
+#define WRITE_ERR "Error: Can't write to %s\n"
+
 /**
  * main - function
  * @argc: count of arguments.
@@ -8,43 +12,35 @@
 
 int main(int argc, char **argv)
 {
-	int rd, wr, fd1, fd2, cl1, cl2;
-	char buf[1024];
+	int from, to, on_close, w, r;
+	char buffer[1024];
 
 	if (argc != 3)
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
+	to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	if (to == -1)
+		dprintf(STDERR_FILENO, WRITE_ERR, argv[2]), exit(99);
+	from = open(argv[1], O_RDONLY);
+	if (from == -1)
+		dprintf(STDERR_FILENO, READ_ERR, argv[1]), exit(98);
+	while (1)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-				exit(97);
+		r = read(from, buffer, 1024);
+		if (r == -1)
+			dprintf(STDERR_FILENO, READ_ERR, argv[1]), exit(98);
+		if (r > 0)
+		{
+			w = write(to, buffer, r);
+			if (w == -1)
+				dprintf(STDERR_FILENO, WRITE_ERR, argv[2]), exit(99);
+		} else
+			break;
 	}
-
-	fd1 = open(argv[1], O_RDONLY);
-	rd = read(fd1, buf, 1024);
-	if (rd == -1 || fd1 == -1)
-	{dprintf(STDERR_FILENO, "Error: Can't read from file%s\n", argv[1]);
-		close(fd1);
-		exit(98);
-	}
-	fd2 = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
-	wr = write(fd2, buf, rd);
-	if (fd2 == -1 || wr == -1)
-	{dprintf(STDERR_FILENO, "Error: Can't write to%s\n", argv[2]);
-		close(fd2);
-		exit(99);
-	}
-	while (rd == 1024)
-	{
-		rd = read(fd2, buf, 1024);
-		wr = write(fd2, buf, rd);
-	}
-	cl1 = close(fd1);
-	cl2 = close(fd2);
-	if (cl1 == -1)
-	{dprintf(STDERR_FILENO, "Error: Can't close fd%d\n", cl1);
-		exit(100);
-	}
-	if (cl2 == -1)
-	{dprintf(STDERR_FILENO, "Error: Can't close fd%d\n", cl2);
-		exit(100);
-	}
+	on_close = close(from);
+	if (on_close == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", from), exit(100);
+	on_close = close(to);
+	if (on_close == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", to), exit(100);
 	return (0);
 }
