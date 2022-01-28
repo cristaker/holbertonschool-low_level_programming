@@ -3,6 +3,7 @@
 /**
  * add_n_hash - adds a node at the beginning of a hash at a given index
  * @key: const char pointer
+ * @head: head of the hash linked list
  * @value: const char pointer
  * Return: heas of the hash
  * **/
@@ -53,7 +54,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (key == NULL || *key == '\0')
 		return (0);
-	
 	k_index = key_index((unsigned char *)key, ht->size);
 
 	if (add_n_hash(&(ht->array[k_index]), key, value) == NULL)
